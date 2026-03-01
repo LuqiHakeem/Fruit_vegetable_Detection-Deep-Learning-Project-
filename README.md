@@ -53,6 +53,7 @@ pip install ultralytics streamlit opencv-python pillow
 ### 3️⃣ Run the Streamlit App
 
 ```bash
+cd C:\Users\Luqman\Desktop\yolo_web_gui
 streamlit run app.py
 ```
 
@@ -106,3 +107,17 @@ You can now upload an image and perform Banana & Potato detection.
 ## 📌 Conclusion
 
 This project demonstrates the implementation of a YOLO-based object detection system integrated with a Streamlit web interface. It highlights practical Deep Learning workflow including dataset preparation, model training, evaluation, and deployment through a user-friendly interface.
+
+---
+
+## 🎓 Academic Information and 👨‍💻 Authors
+
+This academic case study was developed by:
+
+Muhammad Iqbal and Muhammad Luqman Hakim  
+
+Course: Machine Vision (case study)
+Universiti Malaysia Perlis (UniMAP)  
+Year: 2025
+
+This project demonstrates practical implementation of object detection concepts learned in the Machine Vision course.
