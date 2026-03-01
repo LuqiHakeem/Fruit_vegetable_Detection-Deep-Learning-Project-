@@ -11,9 +11,8 @@ The system uses a custom annotated dataset and includes a Streamlit-based web GU
 ## 🛠️ Technologies Used
 
 - Python
-- Ultralytics YOLOv8
+- Ultralytics YOLOv5
 - Streamlit (Web GUI)
-- OpenCV
 - Custom YOLO Dataset
 
 ---
