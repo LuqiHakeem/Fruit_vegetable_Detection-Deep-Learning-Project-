@@ -140,7 +140,68 @@ Output results will be saved in:
 ```
 runs/detect/predict/
 ```
+---
 
+## 🖥️ Graphical User Interface (GUI)
+
+This project includes a Graphical User Interface (GUI) that allows users to interact with the trained YOLO object detection model in a user-friendly environment.
+
+The GUI enables users to:
+
+- Upload an image file
+- Run the trained YOLO model for detection
+- Display detected objects with bounding boxes
+- View confidence scores for Banana and Potato detections
+
+This interface transforms the Deep Learning model into a practical application rather than a command-line based system.
+
+---
+
+### ⚙️ How the GUI Works
+
+1. The user selects an image using the file upload button.
+2. The trained YOLO model (`best.pt`) processes the image.
+3. The model detects Banana and Potato objects.
+4. Bounding boxes and confidence scores are drawn on the image.
+5. The output image is displayed inside the GUI window.
+
+---
+
+### 🛠️ Technologies Used for GUI
+
+- Python
+- Tkinter (GUI framework)
+- Ultralytics YOLOv8
+- OpenCV
+
+---
+
+### 🧠 Sample GUI Code Structure
+
+```python
+from ultralytics import YOLO
+import tkinter as tk
+from tkinter import filedialog
+import cv2
+
+# Load trained model
+model = YOLO("runs/detect/train/weights/best.pt")
+
+def detect_image():
+    file_path = filedialog.askopenfilename()
+    results = model(file_path)
+    results[0].show()
+
+root = tk.Tk()
+root.title("Banana & Potato Detection System")
+
+btn = tk.Button(root, text="Upload Image", command=detect_image)
+btn.pack(pady=20)
+
+root.mainloop()
+```
+
+The GUI provides an intuitive way to test object detection without using command-line instructions.
 ---
 
 ## 📊 Model Output
