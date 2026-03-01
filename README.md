@@ -142,68 +142,69 @@ runs/detect/predict/
 ```
 ---
 
+---
+
 ## 🖥️ Graphical User Interface (GUI)
 
-This project includes a Graphical User Interface (GUI) that allows users to interact with the trained YOLO object detection model in a user-friendly environment.
+This project includes a Graphical User Interface (GUI) implemented in `app.py` that allows users to interact with the trained YOLO object detection model.
 
-The GUI enables users to:
-
-- Upload an image file
-- Run the trained YOLO model for detection
-- Display detected objects with bounding boxes
-- View confidence scores for Banana and Potato detections
-
-This interface transforms the Deep Learning model into a practical application rather than a command-line based system.
+The GUI provides a simple and user-friendly interface to test the Banana and Potato detection system without using command-line commands.
 
 ---
 
-### ⚙️ How the GUI Works
+## 🚀 How to Run the GUI
 
-1. The user selects an image using the file upload button.
-2. The trained YOLO model (`best.pt`) processes the image.
-3. The model detects Banana and Potato objects.
-4. Bounding boxes and confidence scores are drawn on the image.
-5. The output image is displayed inside the GUI window.
+### 1️⃣ Install Dependencies
 
----
+Make sure Python is installed, then install required libraries:
 
-### 🛠️ Technologies Used for GUI
-
-- Python
-- Tkinter (GUI framework)
-- Ultralytics YOLOv8
-- OpenCV
-
----
-
-### 🧠 Sample GUI Code Structure
-
-```python
-from ultralytics import YOLO
-import tkinter as tk
-from tkinter import filedialog
-import cv2
-
-# Load trained model
-model = YOLO("runs/detect/train/weights/best.pt")
-
-def detect_image():
-    file_path = filedialog.askopenfilename()
-    results = model(file_path)
-    results[0].show()
-
-root = tk.Tk()
-root.title("Banana & Potato Detection System")
-
-btn = tk.Button(root, text="Upload Image", command=detect_image)
-btn.pack(pady=20)
-
-root.mainloop()
+```bash
+pip install ultralytics opencv-python pillow
 ```
 
-The GUI provides an intuitive way to test object detection without using command-line instructions.
 ---
 
+### 2️⃣ Run the Application
+
+Navigate to the project directory and run:
+
+```bash
+python app.py
+```
+
+The GUI window will open.
+
+---
+
+## 🔍 GUI Features
+
+- Upload image using file selection dialog
+- Run YOLO detection automatically
+- Display detected Banana and Potato objects
+- Show bounding boxes with confidence scores
+- Display processed output image in the interface
+
+---
+
+## ⚙️ How It Works
+
+1. User clicks "Upload Image"
+2. The selected image is passed to the trained YOLO model (`best.pt`)
+3. The model performs object detection
+4. Detected objects are displayed with bounding boxes
+5. Output image is shown in the GUI window
+
+---
+
+## 📂 Important Files
+
+- `app.py` → Main GUI application
+- `best.pt` → Trained YOLO model weights
+- `data.yaml` → Dataset configuration file
+
+---
+
+This GUI implementation transforms the trained YOLO model into a practical object detection application.
 ## 📊 Model Output
 
 The trained model will:
