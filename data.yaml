@@ -1,0 +1,6 @@
+train: C:/Users/Luqman/Desktop/yolo_web_gui/yolov5/dataset/train/images
+val: C:/Users/Luqman/Desktop/yolo_web_gui/yolov5/dataset/valid/images
+
+nc: 2
+names: ['banana', 'potato']
+
