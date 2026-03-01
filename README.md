@@ -1,25 +1,10 @@
-# Fruit_vegetable_Detection-Deep-Learning-Project-
-A Deep Learning-based object detection case study using YOLO to detect Banana and Potato. The model was trained on a custom annotated dataset and evaluated using standard detection metrics.
-
 # 🍌🥔 Banana & Potato Object Detection using YOLO
 
 ## 📌 Project Overview
 
-This project presents a Deep Learning-based object detection system developed as a case study to detect two object classes: **Banana** and **Potato** using the YOLO (You Only Look Once) architecture.
+This project presents a YOLO-based object detection system developed as a case study to detect two object classes: **Banana** and **Potato**.
 
-The objective of this project is to demonstrate the implementation of real-time object detection using a custom annotated dataset. Unlike traditional image classification, this system detects and localizes objects by generating bounding boxes around detected fruits.
-
-This project serves as a foundational study for understanding modern computer vision techniques and their practical applications.
-
----
-
-## 🧠 Project Objectives
-
-- To understand the fundamentals of YOLO object detection
-- To prepare and annotate a custom dataset in YOLO format
-- To train a YOLO model for binary object detection
-- To evaluate model performance using standard detection metrics
-- To test the trained model on unseen images
+The system uses a custom annotated dataset and includes a Streamlit-based web GUI that allows users to upload images and perform object detection interactively.
 
 ---
 
@@ -27,204 +12,97 @@ This project serves as a foundational study for understanding modern computer vi
 
 - Python
 - Ultralytics YOLOv8
+- Streamlit (Web GUI)
 - OpenCV
-- Google Colab / Local Training Environment
-- Custom annotated dataset (YOLO format)
+- Custom YOLO Dataset
 
 ---
 
 ## 📁 Dataset
 
-Due to GitHub file size limitations, the full dataset is hosted externally.
+Due to GitHub file size limitations, the dataset is hosted externally.
 
-This dataset was prepared specifically for a YOLO-based object detection case study to detect two object classes:
+🔗 Download Dataset:
+https://drive.google.com/drive/folders/17Ne3hZQsqt0QWw167yG6L1J6rZtcsR6n?usp=sharing
 
-- Banana
-- Potato
-
-### 📂 Dataset Structure
-
-```
-dataset/
-├── images/
-│   ├── train/
-│   ├── valid/
-│   └── test/
-├── labels/
-│   ├── train/
-│   ├── valid/
-│   └── test/
-└── data.yaml
-```
-
-Each image contains bounding box annotations stored in `.txt` files following the YOLO annotation format.
-
-### 📥 Download Dataset
-
-Download the complete dataset from Google Drive:
-
-🔗 https://drive.google.com/drive/folders/17Ne3hZQsqt0QWw167yG6L1J6rZtcsR6n?usp=sharing
+Classes:
+- 0: Banana
+- 1: Potato
 
 ---
 
-## ⚙️ Implementation Workflow
+## 🚀 How to Run the Application (Streamlit GUI)
 
-### 1️⃣ Dataset Preparation
-- Images of Banana and Potato were collected.
-- Bounding boxes were annotated in YOLO format.
-- Dataset was split into training, validation, and testing sets.
-
-### 2️⃣ Model Configuration
-- Created `data.yaml` configuration file.
-- Defined class labels:
-  - 0: Banana
-  - 1: Potato
-
-### 3️⃣ Model Training
-- Used pre-trained YOLOv8 nano model (`yolov8n.pt`).
-- Fine-tuned using custom dataset.
-- Monitored training loss and evaluation metrics.
-
-### 4️⃣ Model Evaluation
-Model performance evaluated using:
-- mAP (mean Average Precision)
-- Precision
-- Recall
-
-### 5️⃣ Inference / Prediction
-- Tested trained model on unseen images.
-- Generated bounding boxes with confidence scores.
-
----
-
-## ▶️ How to Train the Model
-
-### 1️⃣ Install Dependencies
+### 1️⃣ Clone the Repository
 
 ```bash
-pip install ultralytics opencv-python
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
 ```
 
 ---
 
-### 2️⃣ Train the YOLO Model
-
-Ensure dataset and `data.yaml` are correctly configured.
+### 2️⃣ Install Dependencies
 
 ```bash
-yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
-```
-
-Explanation:
-- `data.yaml` → Dataset configuration file
-- `yolov8n.pt` → Pre-trained YOLOv8 nano model
-- `epochs=50` → Number of training iterations
-- `imgsz=640` → Image size for training
-
-Trained weights will be saved in:
-
-```
-runs/detect/train/
+pip install ultralytics streamlit opencv-python pillow
 ```
 
 ---
 
-## 🔍 How to Run Inference
+### 3️⃣ Run the Streamlit App
 
 ```bash
-yolo detect predict model=runs/detect/train/weights/best.pt source=sample_images/
+streamlit run app.py
 ```
 
-Output results will be saved in:
+After running the command, the browser will automatically open at:
 
 ```
-runs/detect/predict/
-```
----
-
----
-
-## 🖥️ Graphical User Interface (GUI)
-
-This project includes a Graphical User Interface (GUI) implemented in `app.py` that allows users to interact with the trained YOLO object detection model.
-
-The GUI provides a simple and user-friendly interface to test the Banana and Potato detection system without using command-line commands.
-
----
-
-## 🚀 How to Run the GUI
-
-### 1️⃣ Install Dependencies
-
-Make sure Python is installed, then install required libraries:
-
-```bash
-pip install ultralytics opencv-python pillow
+http://localhost:8501
 ```
 
----
-
-### 2️⃣ Run the Application
-
-Navigate to the project directory and run:
-
-```bash
-python app.py
-```
-
-The GUI window will open.
+You can now upload an image and perform Banana & Potato detection.
 
 ---
 
-## 🔍 GUI Features
+## 🖥️ GUI Features
 
-- Upload image using file selection dialog
-- Run YOLO detection automatically
-- Display detected Banana and Potato objects
-- Show bounding boxes with confidence scores
-- Display processed output image in the interface
-
----
-
-## ⚙️ How It Works
-
-1. User clicks "Upload Image"
-2. The selected image is passed to the trained YOLO model (`best.pt`)
-3. The model performs object detection
-4. Detected objects are displayed with bounding boxes
-5. Output image is shown in the GUI window
+- Upload image via web interface
+- Perform YOLO object detection
+- Display bounding boxes
+- Show confidence scores
+- Real-time result visualization
 
 ---
 
 ## 📂 Important Files
 
-- `app.py` → Main GUI application
+- `app.py` → Streamlit web interface
 - `best.pt` → Trained YOLO model weights
 - `data.yaml` → Dataset configuration file
 
 ---
 
-This GUI implementation transforms the trained YOLO model into a practical object detection application.
-## 📊 Model Output
+## 🔍 How It Works
 
-The trained model will:
-- Detect Banana and Potato
-- Generate bounding boxes
-- Display confidence scores for each detected object
+1. User uploads an image.
+2. The trained YOLO model processes the image.
+3. The system detects Banana or Potato.
+4. Bounding boxes and confidence scores are displayed.
+5. The result is shown directly in the web interface.
 
 ---
 
 ## 🚀 Future Improvements
 
-- Expand to multi-class fruit detection
-- Implement real-time webcam detection
-- Deploy model on edge devices (e.g., Raspberry Pi)
-- Improve accuracy using larger dataset
+- Add multi-class fruit detection
+- Enable webcam live detection
+- Deploy the application online (Streamlit Cloud)
+- Optimize model performance
 
 ---
 
 ## 📌 Conclusion
 
-This project demonstrates the practical implementation of YOLO-based object detection using a custom dataset. It highlights key stages in Deep Learning development including dataset preparation, model training, evaluation, and inference.
-
-The project serves as a foundational case study for real-time computer vision applications.
+This project demonstrates the implementation of a YOLO-based object detection system integrated with a Streamlit web interface. It highlights practical Deep Learning workflow including dataset preparation, model training, evaluation, and deployment through a user-friendly interface.
